@@ -27,7 +27,7 @@
             font-family: 'Roboto', sans-serif, Arial;
             background-color: var(--bg);
             color: #333;
-            padding-bottom: 100px; /* Chừa chỗ cho nút footer */
+            padding-bottom: 100px;
         }
         a { text-decoration: none; }
 
@@ -46,20 +46,28 @@
         .header {
             background: linear-gradient(180deg, var(--green) 0%, #1B5E20 100%);
             color: var(--white);
-            padding: 40px 20px 60px;
+            padding: 30px 15px 50px;
             text-align: center;
-            border-bottom-left-radius: 30px;
-            border-bottom-right-radius: 30px;
+            border-bottom-left-radius: 25px;
+            border-bottom-right-radius: 25px;
             position: relative;
         }
-        .header-icon { font-size: 40px; margin-bottom: 10px; color: #FFEB3B; }
-        .header h1 { font-size: 24px; font-weight: 900; text-transform: uppercase; margin-bottom: 5px; text-shadow: 1px 1px 3px rgba(0,0,0,0.3); }
-        .header .slogan { font-size: 14px; opacity: 0.95; font-style: italic; margin-bottom: 10px; }
-        .hotline-top { font-weight: bold; background: rgba(0,0,0,0.2); padding: 5px 15px; border-radius: 20px; display: inline-block; font-size: 13px; }
+        .header h1 { font-size: 22px; font-weight: 900; text-transform: uppercase; margin-bottom: 5px; text-shadow: 1px 1px 3px rgba(0,0,0,0.3); }
+        .header .slogan { font-size: 13px; opacity: 0.95; font-style: italic; margin-bottom: 10px; }
+        .hotline-top { font-weight: bold; background: rgba(0,0,0,0.2); padding: 5px 15px; border-radius: 20px; display: inline-block; font-size: 13px; margin-bottom: 10px;}
 
-        /* Nút Zalo treo lơ lửng */
+        /* Ảnh Bìa Header */
+        .header-banner-img {
+            width: 100%;
+            border-radius: 12px;
+            margin-top: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            border: 2px solid white;
+        }
+
+        /* Nút Zalo treo */
         .top-zalo-btn {
-            background: var(--white); color: var(--zalo); font-weight: 800; padding: 12px 25px; border-radius: 50px;
+            background: var(--white); color: var(--zalo); font-weight: 800; padding: 10px 25px; border-radius: 50px;
             display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);
             position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%); white-space: nowrap;
             border: 2px solid var(--zalo); z-index: 10;
@@ -73,28 +81,35 @@
         .t-orange { color: var(--orange); } .t-blue { color: var(--blue); } .t-green { color: var(--green); } .t-red { color: var(--red); }
 
         /* Card Style */
-        .card { display: flex; align-items: center; background: var(--white); border-radius: 12px; padding: 15px; margin-bottom: 15px; box-shadow: 0 3px 6px rgba(0,0,0,0.05); border: 1px solid #f0f0f0; transition: all 0.2s; position: relative; }
+        .card { display: flex; align-items: center; background: var(--white); border-radius: 12px; padding: 12px; margin-bottom: 15px; box-shadow: 0 3px 6px rgba(0,0,0,0.05); border: 1px solid #f0f0f0; transition: all 0.2s; position: relative; }
         .card:active { transform: scale(0.98); background: #fafafa; }
         
         /* Viền trái */
         .b-orange { border-left: 5px solid var(--orange); } .b-blue { border-left: 5px solid var(--blue); } .b-green { border-left: 5px solid var(--green); }
         
-        .card-icon { width: 50px; height: 50px; background: #f5f5f5; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-size: 22px; flex-shrink: 0; }
-        
-        /* Nếu dùng ảnh thay icon thì dùng class này */
-        .card-icon img { width: 100%; height: 100%; object-fit: cover; border-radius: 10px; }
+        /* Ảnh sản phẩm nhỏ (Thumbnail) */
+        .card-img { 
+            width: 90px; height: 90px; /* Ảnh to hơn để nhìn rõ món ăn */
+            border-radius: 8px; 
+            object-fit: cover; /* Cắt ảnh cho vừa khung vuông không bị méo */
+            margin-right: 15px; 
+            flex-shrink: 0;
+            border: 1px solid #eee;
+        }
 
         .card-info { flex: 1; }
-        .card-title { font-weight: 700; font-size: 15px; color: #333; display: block; margin-bottom: 4px; }
+        .card-title { font-weight: 700; font-size: 15px; color: #333; display: block; margin-bottom: 4px; line-height: 1.3; }
         .card-desc { font-size: 12px; color: #666; line-height: 1.4; display: block; }
-        .btn-small { font-size: 11px; font-weight: bold; color: #555; background: #eee; padding: 4px 8px; border-radius: 4px; margin-top: 5px; display: inline-block; }
+        .btn-small { font-size: 11px; font-weight: bold; color: #555; background: #eee; padding: 4px 8px; border-radius: 4px; margin-top: 6px; display: inline-block; }
 
         /* --- COMBO HOT --- */
-        .combo-box { background: #FFF8F8; margin: 40px 15px 10px; padding: 15px; border-radius: 15px; border: 2px dashed var(--red); animation: pulse 2s infinite; }
+        .combo-box { background: #FFF8F8; margin: 45px 15px 10px; padding: 15px; border-radius: 15px; border: 2px dashed var(--red); animation: pulse 2s infinite; }
         @keyframes pulse { 0% { border-color: rgba(213, 0, 0, 0.4); } 50% { border-color: rgba(213, 0, 0, 1); } 100% { border-color: rgba(213, 0, 0, 0.4); } }
-        .card-combo { background: linear-gradient(135deg, #D32F2F, #FF5252); color: white; border: none; box-shadow: 0 5px 15px rgba(213, 0, 0, 0.3); }
+        
+        .card-combo { background: linear-gradient(135deg, #D32F2F, #FF5252); color: white; border: none; box-shadow: 0 5px 15px rgba(213, 0, 0, 0.3); align-items: flex-start; }
         .card-combo .card-title, .card-combo .card-desc { color: white; }
-        .card-combo .btn-small { background: #FFEB3B; color: #D32F2F; }
+        .card-combo .btn-small { background: #FFEB3B; color: #D32F2F; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+        .card-combo .card-img { border: 2px solid white; width: 100px; height: 100px;}
 
         /* --- FOOTER --- */
         .sticky-footer { position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 500px; background: var(--white); padding: 12px 15px; box-shadow: 0 -5px 15px rgba(0,0,0,0.1); display: flex; gap: 10px; z-index: 999; border-top: 1px solid #eee; }
@@ -110,12 +125,14 @@
 <div class="container">
 
     <header class="header">
-        <div class="header-icon"><i class="fas fa-store"></i></div>
         <h1>NÔNG SẢN HƯNG YÊN</h1>
         <p class="slogan">"Gà Kim Động chạy bộ - Mực Miền Trung câu tay"</p>
         <div class="hotline-top">
             <i class="fas fa-phone-alt"></i> Em Đạt: 0782.782.522
         </div>
+        
+        <img src="banner.jpg" alt="Món ngon gia đình" class="header-banner-img">
+
         <a href="https://zalo.me/0782782522" class="top-zalo-btn">
             <i class="fas fa-comment-dots"></i> Chat Zalo Ngay
         </a>
@@ -126,15 +143,12 @@
             <i class="fas fa-star"></i> BÁN CHẠY NHẤT
         </div>
         <a href="https://zalo.me/0782782522" class="card card-combo">
-            <div class="card-icon" style="background:none; color: #FFF;">
-                <i class="fas fa-fire-alt" style="font-size: 28px;"></i>
-            </div>
+            <img src="combo.jpg" alt="Combo Lẩu" class="card-img">
             <div class="card-info">
                 <span class="card-title">COMBO LẨU "RỪNG & BIỂN"</span>
-                <span class="card-desc">1 Gà ta + 500g Mực tươi + Tặng rau lẩu sạch Kim Động.</span>
+                <span class="card-desc">1 Gà ta + 500g Mực tươi + Tặng rau lẩu sạch Kim Động. "Mua 1 được tất cả".</span>
                 <span class="btn-small">ĐẶT NGAY KẺO HẾT</span>
             </div>
-            <i class="fas fa-chevron-right" style="color: rgba(255,255,255,0.7)"></i>
         </a>
     </div>
 
@@ -142,23 +156,21 @@
         <div class="group-title t-orange"><i class="fas fa-gift"></i> ĐẶC SẢN MỰC KHÔ</div>
         
         <a href="https://zalo.me/0782782522" class="card b-orange">
-            <div class="card-icon t-orange"><i class="fas fa-crown"></i></div>
+            <img src="muckho.jpg" alt="Mực khô" class="card-img">
             <div class="card-info">
                 <span class="card-title">Mực Khô Câu (Loại 1)</span>
                 <span class="card-desc">Mình dày, phấn hồng, ngọt lịm. Đóng túi hút chân không sang trọng.</span>
-                <span class="btn-small">Xem hình ảnh</span>
+                <span class="btn-small">Xem báo giá</span>
             </div>
-            <i class="fas fa-chevron-right" style="color: #ddd;"></i>
         </a>
 
         <a href="https://zalo.me/0782782522" class="card b-orange">
-            <div class="card-icon t-orange"><i class="fas fa-beer"></i></div>
+            <img src="mucnuong.jpg" alt="Mực nướng" class="card-img">
             <div class="card-info">
                 <span class="card-title">Mực Nướng Sẵn (Đập bông)</span>
                 <span class="card-desc">Nướng chín + Cán mềm + Tương ớt. Mở ra là nhậu ngay!</span>
                 <span class="btn-small">Đặt giao liền</span>
             </div>
-            <i class="fas fa-chevron-right" style="color: #ddd;"></i>
         </a>
     </div>
 
@@ -166,21 +178,19 @@
         <div class="group-title t-blue"><i class="fas fa-water"></i> HẢI SẢN TƯƠI SỐNG</div>
 
         <a href="https://zalo.me/0782782522" class="card b-blue">
-            <div class="card-icon t-blue"><i class="fas fa-fish"></i></div>
+            <img src="muctuoi.jpg" alt="Mực tươi" class="card-img">
             <div class="card-info">
                 <span class="card-title">Mực Nháy & Mực Ống</span>
                 <span class="card-desc">Hàng câu đang bơi cấp đông. Mi nơ nhấp nháy. Xào/Hấp bao giòn.</span>
             </div>
-            <i class="fas fa-chevron-right" style="color: #ddd;"></i>
         </a>
 
         <a href="https://zalo.me/0782782522" class="card b-blue">
-            <div class="card-icon t-blue"><i class="fas fa-utensils"></i></div>
+            <img src="cathu.jpg" alt="Cá thu" class="card-img">
             <div class="card-info">
                 <span class="card-title">Cá Thu Phấn & Một Nắng</span>
                 <span class="card-desc">Cắt khúc, hút chân không. Dôi thịt, không xương dăm.</span>
             </div>
-            <i class="fas fa-chevron-right" style="color: #ddd;"></i>
         </a>
     </div>
 
@@ -188,21 +198,19 @@
         <div class="group-title t-green"><i class="fas fa-leaf"></i> GÀ & CAM HƯNG YÊN</div>
 
         <a href="https://zalo.me/0782782522" class="card b-green">
-            <div class="card-icon t-green"><i class="fas fa-drumstick-bite"></i></div>
+            <img src="ga.jpg" alt="Gà sạch" class="card-img">
             <div class="card-info">
                 <span class="card-title">Gà Đông Tảo Lai & Gà Ta</span>
                 <span class="card-desc">Gà thả vườn, da giòn sần sật. Làm sạch, trả đủ lòng mề.</span>
             </div>
-            <i class="fas fa-chevron-right" style="color: #ddd;"></i>
         </a>
 
         <a href="https://zalo.me/0782782522" class="card b-green">
-            <div class="card-icon t-green"><i class="fas fa-egg"></i></div>
+            <img src="camtrung.jpg" alt="Cam trứng" class="card-img">
             <div class="card-info">
                 <span class="card-title">Cam Canh & Trứng Gà So</span>
                 <span class="card-desc">Cam mọng nước, trứng gà mới đẻ. Combo sức khỏe cho bé.</span>
             </div>
-            <i class="fas fa-chevron-right" style="color: #ddd;"></i>
         </a>
     </div>
 
