@@ -8,114 +8,89 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
+        /* CÀI ĐẶT MÀU SẮC */
         :root {
-            /* Bảng màu chuẩn */
-            --green: #2E7D32;  /* Nông sản */
-            --blue: #0277BD;   /* Hải sản */
-            --orange: #FF6D00; /* Đồ khô */
-            --red: #D50000;    /* Combo Hot */
-            --zalo: #0068FF;   /* Màu Zalo */
-            --bg: #F0F2F5;
+            --green: #2E7D32;  /* Màu Nông sản */
+            --blue: #0277BD;   /* Màu Hải sản */
+            --orange: #E65100; /* Màu Đồ khô */
+            --red: #D50000;    /* Màu Combo Hot */
+            --zalo: #0068FF;   /* Màu Zalo chuẩn */
+            --bg: #F5F7FA;
             --white: #ffffff;
         }
 
+        /* CÀI ĐẶT CHUNG */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Roboto', sans-serif, Arial;
             background-color: var(--bg);
             color: #333;
-            padding-bottom: 90px; /* Chừa chỗ cho nút footer */
+            /* Để chừa khoảng trống cho nút dưới chân trang không che nội dung */
+            padding-bottom: 100px; 
         }
 
-        /* Khung màn hình điện thoại */
+        a { text-decoration: none; }
+
+        /* KHUNG MÀN HÌNH MÔ PHỎNG ĐIỆN THOẠI */
         .container {
-            max-width: 500px;
-            margin: 0 auto;
+            max-width: 500px; /* Giới hạn chiều rộng giống điện thoại */
+            margin: 0 auto;   /* Căn giữa màn hình máy tính */
             background: var(--white);
             min-height: 100vh;
             box-shadow: 0 0 20px rgba(0,0,0,0.1);
             position: relative;
+            overflow: hidden;
         }
 
-        /* 1. HEADER (ĐẦU TRANG) */
+        /* 1. PHẦN ĐẦU TRANG (HEADER) */
         .header {
             background: linear-gradient(180deg, var(--green) 0%, #1B5E20 100%);
             color: var(--white);
-            padding: 30px 15px 40px; /* Padding dưới rộng để chứa nút Zalo */
+            padding: 40px 20px 60px; /* Padding dưới lớn để treo nút Zalo */
             text-align: center;
             border-bottom-left-radius: 30px;
             border-bottom-right-radius: 30px;
             position: relative;
-            margin-bottom: 40px;
+        }
+
+        .header-icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+            color: #FFEB3B; /* Màu vàng cho nổi */
         }
 
         .header h1 {
-            font-size: 26px;
+            font-size: 24px;
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-bottom: 5px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
         }
 
         .header .slogan {
             font-size: 14px;
-            opacity: 0.9;
+            opacity: 0.95;
             font-style: italic;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
 
-        /* Nút Zalo to ở Đầu trang */
+        .hotline-top {
+            font-weight: bold;
+            background: rgba(0,0,0,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            font-size: 13px;
+        }
+
+        /* NÚT ZALO TREO LƠ LỬNG Ở ĐẦU */
         .top-zalo-btn {
             background: var(--white);
             color: var(--zalo);
             font-weight: 800;
-            padding: 12px 30px;
+            padding: 12px 25px;
             border-radius: 50px;
-            text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            position: absolute;
-            bottom: -25px; /* Treo lơ lửng giữa header và body */
-            left: 50%;
-            transform: translateX(-50%);
-            white-space: nowrap;
-            border: 2px solid var(--zalo);
-        }
-        
-        .top-zalo-btn:hover { transform: translateX(-50%) scale(1.05); }
-
-        /* 2. CÁC NHÓM SẢN PHẨM */
-        .section { padding: 20px 15px 0; }
-        
-        .group-title {
-            font-size: 18px;
-            font-weight: 800;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-transform: uppercase;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 8px;
-        }
-        
-        /* Màu tiêu đề */
-        .txt-orange { color: var(--orange); }
-        .txt-blue { color: var(--blue); }
-        .txt-green { color: var(--green); }
-        .txt-red { color: var(--red); }
-
-        /* NÚT SẢN PHẨM (CARD) */
-        .product-card {
-            display: flex;
-            align-items: center;
-            background: var(--white);
-            border-radius: 15px;
-            padding: 15px;
-            margin-bottom: 15px;
-            text-decoration: none;
-            color: #333;
