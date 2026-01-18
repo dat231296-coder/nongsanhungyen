@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nông Sản Hưng Yên - Bếp Nhà Đạt</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-green: #2E7D32; /* Màu nông sản */
+            --primary-blue: #0277BD;  /* Màu hải sản */
+            --primary-orange: #EF6C00; /* Màu đồ khô/nướng */
+            --bg-color: #f5f5f5;
+            --white: #ffffff;
+            --text-dark: #333333;
+            --text-gray: #666666;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            line-height: 1.5;
+            padding-bottom: 80px; /* Để tránh bị footer che mất nội dung cuối */
+        }
+
+        /* Container chính mô phỏng màn hình điện thoại */
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+            background-color: var(--white);
+            min-height: 100vh;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+        }
+
+        /* HEADER */
+        .header {
+            background: linear-gradient(135deg, var(--primary-green), var(--primary-blue));
+            color: var(--white);
+            padding: 30px 20px;
+            text-align: center;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .header .slogan {
+            font-size: 14px;
+            opacity: 0.9;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .header .avatar {
+            width: 80px;
+            height: 80px;
+            background-color: white;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            color: var(--primary-green);
+            border: 3px solid rgba(255,255,255,0.5);
+        }
+
+        .hotline-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* SECTION STYLES */
+        .section {
+            padding: 15px 20px;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            color: var(--text-dark);
+        }
+
+        .section-title i {
+            margin-right: 8px;
+        }
+
+        /* Màu tiêu đề theo nhóm */
+        .title-orange { color: var(--primary-orange); }
+        .title-blue { color: var(--primary-blue); }
+        .title-green { color: var(--primary-green); }
+        .title-red { color: #d32f2f; }
+
+        /* PRODUCT CARD BUTTONS */
+        .card-link {
+            display: block;
+            text-decoration: none;
+            margin-bottom: 15px;
+            transition: transform 0.2s;
+        }
+
+        .card-link:active {
+            transform: scale(0.98);
+        }
+
+        .card {
+            background: var(--white);
+            border: 1px solid #eee;
+            border-radius: 12px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Thanh màu bên trái thẻ để phân loại */
+        .card.border-orange { border-left: 5px solid var(--primary-orange); }
+        .card.border-blue { border-left: 5px solid var(--primary-blue); }
+        .card.border-green { border-left: 5px solid var(--primary-green); }
+        .card.border-red { border-left: 5px solid #d32f2f; background: #fff5f5; }
+
+        .card-icon {
+            font-size: 24px;
+            width: 40px;
+            margin-right: 15px;
+            text-align: center;
+        }
+        
+        .card-content {
+            flex: 1;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+            display: block;
+        }
+
+        .card-desc {
+            font-size: 13px;
+            color: var(--text-gray);
+            display: block;
+            line-height: 1.3;
+        }
+
+        .card-arrow {
+            color: #ccc;
+            margin-left: 10px;
+        }
+
+        /* STICKY FOOTER */
+        .sticky-footer {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 480px;
+            background: var(--white);
+            padding: 10px 15px;
+            box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
+            display: flex;
+            gap: 10px;
+            z-index: 1000;
+        }
+
+        .btn-footer {
+            flex: 1;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-call {
+            background-color: #d32f2f;
+            color: white;
+            animation: pulse 2s infinite;
+        }
+
+        .btn-zalo {
+            background-color: #0068FF; /* Màu chuẩn Zalo */
+            color: white;
+        }
+
+        /* Hiệu ứng rung cho nút gọi */
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(211, 47, 47, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(211, 47, 47, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(211, 47, 47, 0); }
+        }
+
+        .address-text {
+            text-align: center;
+            font-size: 12px;
+            color: #888;
+            padding: 20px;
+            margin-bottom: 60px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="header">
+            <div class="avatar">
+                <i class="fas fa-store"></i>
+            </div>
+            <h1>NÔNG SẢN HƯNG YÊN</h1>
+            <p class="slogan">"Gà Kim Động chạy bộ - Mực Miền Trung câu tay"</p>
+            <div class="hotline-badge">
+                <i class="fas fa-phone-alt"></i> Em Đạt: 0782.782.522
+            </div>
+        </header>
+
+        <div class="section">
+            <div class="section-title title-orange">
+                <i class="fas fa-fire"></i> 🔥 ĐẶC SẢN MỰC KHÔ (BIẾU & NHẬU)
+            </div>
+
+            <a href="https://zalo.me/0782782522" class="card-link">
+                <div class="card border-orange">
+                    <div class="card-icon title-orange"><i class="fas fa-gift"></i></div>
+                    <div class="card-content">
+                        <span class="card-title">MỰC KHÔ CÂU (LOẠI 1)</span>
+                        <span class="card-desc">Mình dày, phấn hồng, ngọt lịm. Đóng túi hút chân không sang trọng.</span>
+                    </div>
+                    <div class="card-arrow"><i class="fas fa-chevron-right"></i></div>
+                </div>
+            </a>
+
+            <a href="https://zalo.me/0782782522" class="card-link">
+                <div class="card border-orange">
+                    <div class="card-icon title-orange"><i class="fas fa-beer"></i></div>
+                    <div class="card-content">
+                        <span class="card-title">MỰC NƯỚNG SẴN (ĐẬP BÔNG)</span>
+                        <span class="card-desc">Nướng chín + Cán mềm + Tặng tương ớt. Mở ra là nhậu ngay!</span>
+                    </div>
+                    <div class="card-arrow"><i class="fas fa-chevron-right"></i></div>
+                </div>
+            </a>
+        </div>
+
+        <div class="section">
+            <div class="section-title title-blue">
+                <i class="fas fa-water"></i> 🌊 HẢI SẢN TƯƠI CẤP ĐÔNG
+            </div>
+
+            <a href="https://zalo.me/0782782522" class="card-link">
+                <div class="card border-blue">
+                    <div class="card-icon title-blue"><i class="fas fa-fish"></i></div>
+                    <div class="card-content">
+                        <span class="card-title">MỰC LÁ ĐẠI & MỰC ỐNG</span>
+                        <span class="card-desc">Hàng câu đang bơi cấp đông ngay. Mi nơ nhấp nháy. Xào/Hấp bao giòn.</span>
+                    </div>
+                    <div class="card-arrow"><i class="fas fa-chevron-right"></i></div>
+                </div>
+            </a>
+
+            <a href="https://zalo.me/0782782522" class="card-link">
+                <div class="card border-blue">
+                    <div class="card-icon title-blue"><i class="fas fa-utensils"></i></div>
+                    <div class="card-content">
+                        <span class="card-title">CÁ THU PHẤN & MỘT NẮNG</span>
+                        <span class="card-desc">Cắt khúc, hút chân không. Dôi thịt, không xương dăm, trẻ em thích.</span>
+                    </div>
+                    <div class="card-arrow"><i class="fas fa-chevron-right"></i></div>
+                </div>
+            </a>
+        </div>
+
+        <div class="section">
+            <div class="section-title title-green">
+                <i class="fas fa-leaf"></i> 🐔 NÔNG SẢN KIM ĐỘNG
+            </div>
+
+            <a href="https://zalo.me/0782782522" class="card-link">
+                <div class="card border-green">
+                    <div class="card-icon title-green"><i class="fas fa-drumstick-bite"></i></div>
+                    <div class="card-content">
+                        <span class="card-title">GÀ ĐÔNG TẢO LAI & GÀ TA</span>
+                        <span class="card-desc">Gà thả vườn, da giòn sần sật. Làm sạch, trả đủ lòng mề.</span>
+                    </div>
+                    <div class="card-arrow"><i class="fas fa-chevron-right"></i></div>
+                </div>
+            </a>
+
+            <a href="https://zalo.me/0782782522" class="card-link">
+                <div class="card border-green">
+                    <div class="card-icon title-green"><i class="fas fa-egg"></i></div>
+                    <div class="card-content">
+                        <span class="card-title">CAM CANH & TRỨNG GÀ SO</span>
+                        <span class="card-desc">Cam mọng nước, trứng gà mới đẻ. Combo sức khỏe cho bé.</span>
+                    </div>
+                    <div class="card-arrow"><i class="fas fa-chevron-right"></i></div>
+                </div>
+            </a>
+        </div>
+
+        <div class="section">
+            <div class="section-title title-red">
+                <i class="fas fa-star"></i> 🎁 COMBO BEST SELLER
+            </div>
+
+            <a href="https://zalo.me/0782782522" class="card-link">
+                <div class="card border-red">
+                    <div class="card-icon title-red"><i class="fas fa-heart"></i></div>
+                    <div class="card-content">
+                        <span class="card-title" style="color: #d32f2f;">COMBO LẨU "RỪNG & BIỂN"</span>
+                        <span class="card-desc">1 Gà ta + 500g Mực tươi + Tặng rau lẩu sạch Kim Động.</span>
+                    </div>
+                    <div class="card-arrow"><i class="fas fa-chevron-right"></i></div>
+                </div>
+            </a>
+        </div>
+
+        <div class="address-text">
+            <i class="fas fa-map-marker-alt"></i> Kho hàng tại Kim Động - Hưng Yên
+        </div>
+    </div>
+
+    <div class="sticky-footer">
+        <a href="tel:0782782522" class="btn-footer btn-call">
+            <i class="fas fa-phone-volume"></i> GỌI SHIP NGAY
+        </a>
+        <a href="https://zalo.me/0782782522" class="btn-footer btn-zalo">
+            <i class="fas fa-comment-dots"></i> CHAT ZALO
+        </a>
+    </div>
+
+</body>
+</html>
